@@ -44,4 +44,4 @@ My APY = (My_node_rpl_earned/ My_node_rpl_deposited)
 
 ## The code
 
-I am not aspecialist with R so no doubt the code can be improved significantly.  
+I am not a specialist with R so no doubt the code can be improved significantly.  
