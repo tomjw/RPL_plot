@@ -70,7 +70,8 @@ shinyServer(function(input, output) {
     My_APY <- round(100.0 * My_node_rpl_earned/ My_node_rpl_deposited, 1)
    
     # create second dataframe with individual node data to display on plot
-    my_node_data <- data.frame(My_node_rpl_deposited, My_node_rpl_earned, My_APY)
+    My_nodes_coll_ratio <- input$my_node_coll
+    my_node_data <- data.frame(My_nodes_coll_ratio, My_node_rpl_deposited, My_node_rpl_earned, My_APY)
     
     # convert negative returns to zero if transaction costs exceed RPL for distribution
     if( RPL_data$Tot_Transaction_costs > Tot_RPL_for_node_ops){RPL_data$APY <- 0}

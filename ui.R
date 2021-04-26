@@ -75,7 +75,8 @@ shinyUI(fluidPage(
 
                 mainPanel(p('Plot shows the Annual Percentage Yield (APY) for RPL
                 staked within Rocket Pool Nodes. Calculations based
-                on spreadsheet in RPL tokenomics announcement. Assumptions 
+                on spreadsheet in' , a(href = 'https://medium.com/rocket-pool/rocket-poo%20l-staking-protocol-part-3-3029afb57d4c', 
+                ' RPL tokenomics ', .noWS = "outside"), .noWS = c("after-begin", "before-end"), 'announcement. Assumptions 
                 are an annual inflation rate of 5%, with 70% of annual
                 emission going to node operators. There are transaction costs involved
                 in processing the smart contract which allocates the RPL rewards. 
@@ -88,7 +89,9 @@ shinyUI(fluidPage(
                 rewards. Adjust the parameters on the left to find out how 
                 many RPL your node will earn each year.'),
                 p('This is not an official Rocket Pool tool.  Use at your own risk.
-                  Code and underlying calculations available at GITXXXXXXXX'),
+                  Code and underlying calculations available at' , 
+                  a(href = 'https://github.com/tomjw/RPL_plot', 
+                  ' GitHub ', .noWS = "outside"), .noWS = c("after-begin", "before-end"),),
                 
                 plotOutput("RPLPlot")
                                                      
