@@ -75,15 +75,19 @@ shinyUI(fluidPage(
 
                 mainPanel(p('Plot shows the Annual Percentage Yield (APY) for RPL
                 staked within Rocket Pool Nodes. Calculations based
-                on spreadsheet in' , a(href = 'https://medium.com/rocket-pool/rocket-poo%20l-staking-protocol-part-3-3029afb57d4c', 
-                ' RPL tokenomics ', .noWS = "outside"), .noWS = c("after-begin", "before-end"), 'announcement. Assumptions 
-                are an annual inflation rate of 5%, with 70% of annual
+                on spreadsheet in the' , a(href = 'https://medium.com/rocket-pool/rocket-poo%20l-staking-protocol-part-3-3029afb57d4c', 
+                ' RPL tokenomics ', .noWS = "outside"), .noWS = c("after-begin", "before-end"), 
+                'article. Assumptions are an annual inflation rate of 5%, with 70% of annual
                 emission going to node operators. There are transaction costs involved
                 in processing the smart contract which allocates the RPL rewards. 
                   The cost is around 500 000 in gas each transaction. 
                   Currently transactions are planned for every four weeks, so 13 
-                  per year'),
-                p('Rocket Pool requires you to deposit 16ETH in your minipool along
+                  per year. For simplicity, the transaction costs are shown to come 
+                directly off the RPL earned by the node.  In actuality the transaction
+                costs are paid by ETH held in the node wallet.  If you want to see
+                the actual RPL earned without considering transaction costs set 
+                the gas price to zero.'),
+                p('Rocket Pool requires you to deposit 16 ETH in your minipool along
                 with a minimum of 10% of that value (to a max of 150%)  in RPL.
                 You then earn rewards on that RPL along with the ETH staking 
                 rewards. Adjust the parameters on the left to find out how 
