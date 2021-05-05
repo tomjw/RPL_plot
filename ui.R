@@ -19,7 +19,7 @@ shinyUI(fluidPage(
                                     min = 1,
                                     max = 20000,
                                     value = 2500,
-                                    step = 5),
+                                    step = 1),
 
                         sliderInput("rpl_value",
                                     "RPL value ($)",
