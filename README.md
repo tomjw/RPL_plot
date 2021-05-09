@@ -1,5 +1,5 @@
 # RPL_plot
-[Rocket Pool](https://medium.com/rocket-pool) is an Ethereum staking platform that lets you run a validator and earn rewards with a stake of 16ETH as opposed to the normally required 32ETH. Rocket Pool requires that along with your 16ETH you deposit a minimum of 10% of that value (to a max of 150%)  in RPL, the Rocket Pool protocol token. You then earn rewards on that RPL, along with the normal ETH staking rewards.
+[Rocket Pool](https://medium.com/rocket-pool) is an Ethereum staking platform that lets you run a validator and earn rewards with a stake of 16 ETH as opposed to the normally required 32 ETH. Rocket Pool requires that along with your 16 ETH you deposit a minimum of 10% of that value (to a max of 150%)  in RPL, the Rocket Pool protocol token. You then earn rewards on that RPL, along with the normal ETH staking rewards.
 
 This is an R Shiny [application](https://tommw.shinyapps.io/RPL_apy/) that plots the Annual Percentage Yield (APY) for RPL staked within Rocket Pool ETH Staking nodes. Calculations are based on the spreadsheet in the RPL [tokenomics announcement](https://medium.com/rocket-pool/rocket-pool-staking-protocol-part-3-3029afb57d4c). 
 
@@ -36,6 +36,7 @@ Transaction costs in RPL =  Transaction costs in eth * (ETH value / RPL value)
 ### for an individual  node:
 
 My node rpl deposited = RPL required per node / minipools per node      #at my nodes collateralisation ratio 
+
 My node rpl earned =  (My node rpl deposited / Total RPL deposited) * (Total RPL deposited - Transaction costs in RPL)  
 My APY = (My_node_rpl_earned/ My_node_rpl_deposited) * 100
 
