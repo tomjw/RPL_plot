@@ -72,6 +72,7 @@ shinyServer(function(input, output) {
     # create second dataframe with individual node data to display on plot
     My_nodes_coll_ratio <- input$my_node_coll
     my_node_data <- data.frame(My_nodes_coll_ratio, My_node_rpl_deposited, My_node_rpl_earned, My_APY)
+    #my_node_data <- format(list(my_node_data), big.mark = ",")
     
     # convert negative returns to zero if transaction costs exceed RPL for distribution
     if( RPL_data$Tot_Transaction_costs > Tot_RPL_for_node_ops){RPL_data$APY <- 0}
@@ -82,20 +83,22 @@ shinyServer(function(input, output) {
     high <-  RPL_data$APY[RPL_data$RPL_Coll_ratio == input$Max_X_axis[1]]
     if(RPL_data$APY == 0){high  <- 0.05}
     low <-  RPL_data$APY[RPL_data$RPL_Coll_ratio == input$Max_X_axis[2]]
+
+    
     
     (p <- ggplot(RPL_data, aes(RPL_Coll_ratio, APY)) + geom_line()
-         + ## start of plot commands
-         ylab('APY (%)') +
-         xlab('Average Node RPL Collateralisation Ratio (%)') +
-         ylim(low, high ) +
-         scale_x_continuous(limits = c(input$Max_X_axis[1], input$Max_X_axis[2]))+
-         theme_bw() +
-         theme(axis.text.x  = element_text( size=14)) +
-         theme(axis.text.y  = element_text( size=14)) +
-         theme(panel.grid.minor = element_line(colour="white", size=0.3)) +
-         annotate(geom = "table", x = c(input$Max_X_axis[2],input$Max_X_axis[2]), y = c(high,low + 0.9*(high-low)),
-                  label = c(list(RPL_data[RPL_data$RPL_Coll_ratio == input$network_avg_coll,]),
-                  list(my_node_data)))
+      + ## start of plot commands
+        ylab('APY (%)') +
+        xlab('Average Node RPL Collateralisation Ratio (%)') +
+        ylim(low, high ) +
+        scale_x_continuous(limits = c(input$Max_X_axis[1], input$Max_X_axis[2]))+
+        theme_bw() +
+        theme(axis.text.x  = element_text( size=14)) +
+        theme(axis.text.y  = element_text( size=14)) +
+        theme(panel.grid.minor = element_line(colour="white", size=0.3)) +
+        annotate(geom = "table", x = c(input$Max_X_axis[2],input$Max_X_axis[2]), y = c(high,low + 0.9*(high-low)),
+                 label = c(list(data.frame(lapply(RPL_data[RPL_data$RPL_Coll_ratio == input$network_avg_coll,],function(x){format(x, big.mark = ",", scientific = F)}))),
+                           list(data.frame(lapply(my_node_data, function(x){format(x, big.mark = ",") })))), size = 4.5)
     )
   })
 })
