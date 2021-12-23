@@ -45,7 +45,6 @@ My APY = (My_node_rpl_earned/ My_node_rpl_deposited) * 100
 ## The code to do list
 
 
-- Improve presentation of numbers, put them in separte table, better format.
 - use reactive() where helpful
 - clean up variable names
 - plot is stepped at finer resolutions
