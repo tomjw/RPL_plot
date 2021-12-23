@@ -18,21 +18,21 @@ shinyUI(fluidPage(
                                     "ETH value ($)",
                                     min = 1,
                                     max = 20000,
-                                    value = 2500,
+                                    value = 4500,
                                     step = 1),
 
                         sliderInput("rpl_value",
                                     "RPL value ($)",
                                     min = 1,
                                     max = 1000,
-                                    value = 20,
+                                    value = 45,
                                     step = 1),
                         
                         sliderInput("Node_ops",
                                     "Number of nodes",
                                     min = 0.0,
                                     max = 20000,
-                                    value = 3000,
+                                    value = 2000,
                                     step = 100),
                         
                         sliderInput("mini_per_node",
@@ -46,14 +46,14 @@ shinyUI(fluidPage(
                                     "Average node collaterlisation for Rocketpool",
                                     min = 10,
                                     max = 150,
-                                    value = 30,
+                                    value = 80,
                                     step = 1),
                         
                         sliderInput("my_node_coll",
                                     "My Node  collaterallisation ratio",
                                     min = 10,
                                     max = 150,
-                                    value = 20,
+                                    value = 70,
                                     step = 1),
                         
                        
@@ -73,7 +73,12 @@ shinyUI(fluidPage(
 
                         ),
 
-                mainPanel(p('Plot shows the Annual Percentage Yield (APY) for RPL
+                mainPanel( p('Rocket Pool requires you to deposit 16 ETH in your minipool along
+                with a minimum of 10% of that value (to a max of 150%)  in RPL.
+                You then earn rewards on that RPL along with the ETH staking 
+                rewards. Adjust the parameters on the left to find out how 
+                many RPL your node will earn each year.'),
+                p('Plot shows the Annual Percentage Yield (APY) for RPL
                 staked within Rocket Pool Nodes. Calculations based
                 on spreadsheet in the' , a(href = 'https://medium.com/rocket-pool/rocket-poo%20l-staking-protocol-part-3-3029afb57d4c', 
                 ' RPL tokenomics ', .noWS = "outside"), .noWS = c("after-begin", "before-end"), 
@@ -87,11 +92,7 @@ shinyUI(fluidPage(
                 costs are paid by ETH held in the node wallet.  If you want to see
                 the actual RPL earned without considering transaction costs set 
                 the gas price to zero.'),
-                p('Rocket Pool requires you to deposit 16 ETH in your minipool along
-                with a minimum of 10% of that value (to a max of 150%)  in RPL.
-                You then earn rewards on that RPL along with the ETH staking 
-                rewards. Adjust the parameters on the left to find out how 
-                many RPL your node will earn each year.'),
+               
                 p('This is not an official Rocket Pool tool.  Use at your own risk.
                   Code and underlying calculations available at' , 
                   a(href = 'https://github.com/tomjw/RPL_plot', 
@@ -102,4 +103,6 @@ shinyUI(fluidPage(
                 )
         )
 ))
+
+
 
