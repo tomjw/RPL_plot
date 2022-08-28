@@ -86,8 +86,9 @@ shinyServer(function(input, output) {
 
     
     
-    (p <- ggplot(RPL_data, aes(RPL_Coll_ratio, APY)) + geom_line()
+    (p <- ggplot(RPL_data, aes(RPL_Coll_ratio, APY)) 
       + ## start of plot commands
+        geom_smooth(color = "orange", formula = y ~ poly(x, 8), se = FALSE)
         ylab('APY (%)') +
         xlab('Average Node RPL Collateralisation Ratio (%)') +
         ylim(low, high ) +
